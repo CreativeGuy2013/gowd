@@ -1,4 +1,4 @@
-package bootstrap
+package mdl
 
 import (
 	"github.com/dtylman/gowd"
@@ -17,7 +17,7 @@ type Checkbox struct {
 	txt    *gowd.Element
 }
 
-//NewCheckBox creates a bootstrap checkbox with label
+//NewCheckBox creates a mdl checkbox with label
 func NewCheckBox(caption string, checked bool) *Checkbox {
 	cb := new(Checkbox)
 	cb.Element = NewElement("div", "checkbox")

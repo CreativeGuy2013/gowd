@@ -1,4 +1,4 @@
-package bootstrap
+package mdl
 
 import (
 	"github.com/dtylman/gowd"
@@ -16,18 +16,18 @@ import (
 */
 
 const (
-	//PanelDefault bootstrap default paenl
+	//PanelDefault mdl default paenl
 	PanelDefault = "panel-default"
 )
 
-//Panel is a bootstrap panel
+//Panel is a mdl panel
 type Panel struct {
 	*gowd.Element
 	Heading *gowd.Element
 	Body    *gowd.Element
 }
 
-//NewPanel creates a new bootstrap panel with the provided type.
+//NewPanel creates a new mdl panel with the provided type.
 func NewPanel(panelType string) *Panel {
 	p := new(Panel)
 	p.Element = NewElement("div", "panel "+panelType)

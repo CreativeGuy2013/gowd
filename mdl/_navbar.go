@@ -1,4 +1,4 @@
-package bootstrap
+package mdl
 
 import (
 	"github.com/dtylman/gowd"
@@ -28,14 +28,14 @@ import (
 //NavbarDefault default navbar
 const NavbarDefault = "navbar-default"
 
-//Navbar is a bootstrap navbar element
+//Navbar is a mdl navbar element
 type Navbar struct {
 	*gowd.Element
 	Lists     []*List
 	container *gowd.Element
 }
 
-//NewNavBar creates new bootstrap navbar
+//NewNavBar creates new mdl navbar
 func NewNavBar(navbarType string) *Navbar {
 	nb := &Navbar{}
 	nb.Element = NewElement("nav", navbarType)
