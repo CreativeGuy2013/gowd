@@ -33,7 +33,7 @@ func NewFileButton(buttontype string, caption string, foldersOnly bool) *FileBut
 	fb.AddElement(fb.input)
 	fb.AddElement(fb.btn)
 	return fb
-
+	NewElement()
 }
 
 //OnChange registers the onchange event
