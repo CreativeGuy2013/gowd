@@ -26,6 +26,7 @@ func NewProgressBar() *ProgressBar {
 	return progress
 }
 
+//NewLoadingBar creates a new loading bar, you can set the percentage and buffer value
 func NewLoadingBar() *gowd.Element {
 	loadingBar := NewElement("div", "mdl-progress mdl-js-progress mdl-progress__indeterminate")
 	return loadingBar
@@ -43,7 +44,8 @@ func (pb *ProgressBar) SetBuffering(percent int) {
 	execJS(fmt.Sprintf("document.getElementById('%q').MaterialProgress.setBuffer(%d)", pb.GetID(), pb.percentage))
 }
 
-func newSpinner(spinnertype ...string) *gowd.Element {
+//NewLoadingBar creates a new spinning loader
+func NewSpinner(spinnertype ...string) *gowd.Element {
 	loadingBar := NewElement("div", "mdl-spinner mdl-js-spinner is-active"+strings.Join(spinnertype, " "))
 	return loadingBar
 }
