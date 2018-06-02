@@ -10,7 +10,7 @@ const (
 	//ButtonPrimary primary bootstrap button
 	ButtonPrimary = "btn-primary"
 
-	ButtonColoures = "mdl-button--colored"
+	ButtonColoured = "mdl-button--colored"
 	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
 	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
 	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
