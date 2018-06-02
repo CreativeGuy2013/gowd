@@ -7,18 +7,14 @@ import (
 )
 
 const (
-	//ButtonColoured Are you blind
-	ButtonColoured = "mdl-button--colored"
-	ButtonRippled  = "mdl-js-ripple-effect"
+	//ButtonColored makes the button the primary color.
+	ButtonColored = "mdl-button--colored"
 
-	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
-	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
-	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
-	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
-	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
+	//ButtonColored makes the button the have a ripple effect.
+	ButtonRippled = "mdl-js-ripple-effect"
 )
 
-//NewButton creates a new bootstrap <button> element
+//NewButton creates a new mdl <button> element
 func NewButtonDefault(buttontype string, caption string) *gowd.Element {
 	btn := NewElement("button", "btn "+buttontype)
 	if caption != "" {
@@ -28,7 +24,11 @@ func NewButtonDefault(buttontype string, caption string) *gowd.Element {
 }
 
 func NewFab(icon string, enabled bool, buttontype ...string) *gowd.Element {
+<<<<<<< HEAD
 	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--fab "+strings.Join(buttontype, " "))
+=======
+	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--fab" + strings.Join(buttontype, ", "))
+>>>>>>> 81735134817edcba8ba6b104fb68987812ec182d
 
 	if icon != "" {
 		btnIcon := NewElement("i", "material-icons")
