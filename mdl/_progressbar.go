@@ -23,6 +23,8 @@ type ProgressBar struct {
 
 //NewProgressBar creates new mdl progress bar element
 func NewProgressBar() *ProgressBar {
+	P := new(ProgressBar)
+
 	progress := new(ProgressBar)
 	progress.Element = NewElement("div", "progress")
 	progress.bar = NewElement("div", "progress-bar")

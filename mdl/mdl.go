@@ -2,6 +2,7 @@ package mdl
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/dtylman/gowd"
 )
@@ -52,6 +53,6 @@ func NewColumn(size string, span int, elems ...*gowd.Element) *gowd.Element {
 	return NewElement("div", fmt.Sprintf("%s-%d", size, span), elems...)
 }
 
-func ExecJS(js string) err error {
-	
+func ExecJS(js string) {
+	fmt.Fprintln(os.Stdout, js)
 }
