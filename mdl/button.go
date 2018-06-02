@@ -5,11 +5,11 @@ import (
 )
 
 const (
-	//ButtonColoured Are you blind
-	ButtonColoured = "mdl-button--colored"
+	//ButtonColored makes the button the primary color.
+	ButtonColored = "mdl-button--colored"
 )
 
-//NewButton creates a new bootstrap <button> element
+//NewButton creates a new mdl <button> element
 func NewButtonDefault(buttontype string, caption string) *gowd.Element {
 	btn := NewElement("button", "btn "+buttontype)
 	if caption != "" {
