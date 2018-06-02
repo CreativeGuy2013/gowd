@@ -7,8 +7,8 @@ import (
 )
 
 const (
-	//ButtonColored makes the button the primary mdl color.
-	ButtonColored = "mdl-button--colored"
+	//ButtonPrimary makes the button the primary mdl color.
+	ButtonPrimary = "mdl-button--primary"
 
 	//ButtonAccent makes the button the secondary mdl color.
 	ButtonAccent = "mdl-button--accent"
@@ -30,7 +30,23 @@ func NewButtonDefault(caption string, buttontype ...string) *gowd.Element {
 
 //NewButtonFab creates a new fab mdl <button> element
 func NewButtonFab(icon string, enabled bool, buttontype ...string) *gowd.Element {
-	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--fab"+strings.Join(buttontype, ", "))
+	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--fab "+strings.Join(buttontype, " "))
+
+	if icon != "" {
+		btnIcon := NewElement("i", "material-icons")
+		btnIcon.SetText(icon)
+		btn.AddElement(btnIcon)
+	} else {
+		return nil
+	}
+	if !enabled {
+		btn.Disable()
+	}
+	return btn
+}
+
+func NewbuttonRaised(icon string, enabled bool, buttontype ...string) *gowd.Element {
+	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--raised "+strings.Join(buttontype, " "))
 
 	if icon != "" {
 		btnIcon := NewElement("i", "material-icons")
