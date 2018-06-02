@@ -7,12 +7,6 @@ import (
 const (
 	//ButtonColoured
 	ButtonColoured = "mdl-button--colored"
-
-	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
-	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
-	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
-	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
-	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
 )
 
 //NewButton creates a new bootstrap <button> element
