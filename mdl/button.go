@@ -17,6 +17,36 @@ const (
 	ButtonRippled = "mdl-js-ripple-effect"
 )
 
+//NewButtonRaised creates a new raised mdl <button> element
+func NewButtonRaised(caption string, enabled bool, buttontype ...string) *gowd.Element {
+	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--raised "+strings.Join(buttontype, " "))
+
+	if caption != "" {
+		btn.SetText(caption)
+	}
+	if !enabled {
+		btn.Disable()
+	}
+	return btn
+}
+
+//NewButtonFlat creates a flat (default) mdl <button> element
+func NewButtonFlat(icon string, enabled bool, buttontype ...string) *gowd.Element {
+	btn := NewElement("button", "mdl-button mdl-js-button "+strings.Join(buttontype, " "))
+
+	if icon != "" {
+		btnIcon := NewElement("i", "material-icons")
+		btnIcon.SetText(icon)
+		btn.AddElement(btnIcon)
+	} else {
+		return nil
+	}
+	if !enabled {
+		btn.Disable()
+	}
+	return btn
+}
+
 //NewButtonFab creates a new fab mdl <button> element
 func NewButtonFab(icon string, enabled bool, buttontype ...string) *gowd.Element {
 	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--fab "+strings.Join(buttontype, " "))
@@ -61,30 +91,6 @@ func NewButtonIcon(icon string, enabled bool, buttontype ...string) *gowd.Elemen
 		btn.AddElement(btnIcon)
 	} else {
 		return nil
-	}
-	if !enabled {
-		btn.Disable()
-	}
-	return btn
-}
-
-func NewButtonRaised(caption string, enabled bool, buttontype ...string) *gowd.Element {
-	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--raised "+strings.Join(buttontype, " "))
-
-	if caption != "" {
-		btn.SetText(caption)
-	}
-	if !enabled {
-		btn.Disable()
-	}
-	return btn
-}
-
-func NewButtonFlat(caption string, enabled bool, buttontype ...string) *gowd.Element {
-	btn := NewElement("button", "mdl-button mdl-js-button "+strings.Join(buttontype, " "))
-
-	if caption != "" {
-		btn.SetText(caption)
 	}
 	if !enabled {
 		btn.Disable()
