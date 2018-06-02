@@ -94,13 +94,3 @@ func NewButtonIcon(icon string, enabled bool, buttontype ...string) *gowd.Elemen
 	}
 	return btn
 }
-
-//NewLinkButton creates a new bootstrap link button (<a>)
-func NewLinkButton(caption string) *gowd.Element {
-	linkBtn := gowd.NewElement("a")
-	linkBtn.SetAttribute("href", "#")
-	if caption != "" {
-		linkBtn.AddElement(gowd.NewText(caption))
-	}
-	return linkBtn
-}
