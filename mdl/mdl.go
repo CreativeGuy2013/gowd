@@ -54,5 +54,5 @@ func NewColumn(size string, span int, elems ...*gowd.Element) *gowd.Element {
 }
 
 func ExecJS(js string) {
-	fmt.Fprintln(os.Stdout, js)
+	fmt.Fprintf(os.Stdout, "$%s\n", js)
 }

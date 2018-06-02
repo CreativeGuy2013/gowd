@@ -13,8 +13,8 @@ const (
 	//ButtonAccent makes the button the secondary mdl color.
 	ButtonAccent = "mdl-button--accent"
 
-	//ButtonRippled makes the button the have a ripple effect.
-	ButtonRippled = "mdl-js-ripple-effect"
+	//ButtonRipple makes the button the have a ripple effect.
+	ButtonRipple = "mdl-js-ripple-effect"
 )
 
 //NewButtonRaised creates a new raised mdl <button> element
