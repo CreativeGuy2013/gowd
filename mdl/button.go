@@ -80,15 +80,11 @@ func NewbuttonRaised(caption string, enabled bool, buttontype ...string) *gowd.E
 	return btn
 }
 
-func NewButtonFlat(icon string, enabled bool, buttontype ...string) *gowd.Element {
+func NewButtonFlat(caption string, enabled bool, buttontype ...string) *gowd.Element {
 	btn := NewElement("button", "mdl-button mdl-js-button "+strings.Join(buttontype, " "))
 
-	if icon != "" {
-		btnIcon := NewElement("i", "material-icons")
-		btnIcon.SetText(icon)
-		btn.AddElement(btnIcon)
-	} else {
-		return nil
+	if caption != "" {
+		btn.SetText(caption)
 	}
 	if !enabled {
 		btn.Disable()
