@@ -22,7 +22,7 @@ const (
 	AlertDanger = "alert-danger"
 )
 
-//NewAlert returns new bootstrap alert
+//NewAlert returns new mdl alert
 func NewAlert(title string, caption string, alertType string, dismissible bool) *gowd.Element {
 	alertClass := "alert " + alertType
 	alert := NewElement("div", alertClass)

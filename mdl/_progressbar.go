@@ -14,14 +14,14 @@ import (
 //</div>
 //</div>
 
-//ProgressBar represents bootstrap progress-bar element
+//ProgressBar represents mdl progress-bar element
 type ProgressBar struct {
 	*gowd.Element
 	bar *gowd.Element
 	txt *gowd.Element
 }
 
-//NewProgressBar creates new bootstrap progress bar element
+//NewProgressBar creates new mdl progress bar element
 func NewProgressBar() *ProgressBar {
 	progress := new(ProgressBar)
 	progress.Element = NewElement("div", "progress")

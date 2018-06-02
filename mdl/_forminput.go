@@ -10,7 +10,7 @@ import (
 //<p class="help-block">Example block-level help text here.</p>
 //</div>
 
-//FormInput is a bootstrap "form-group" input
+//FormInput is a mdl "form-group" input
 type FormInput struct {
 	*gowd.Element
 	input   *gowd.Element
@@ -18,7 +18,7 @@ type FormInput struct {
 	helpTxt *gowd.Element
 }
 
-//NewFormInput creates a bootstrap "form-group" containing an input with a given type and caption
+//NewFormInput creates a mdl "form-group" containing an input with a given type and caption
 func NewFormInput(inputType string, caption string) *FormInput {
 	i := new(FormInput)
 	i.Element = NewElement("div", "form-group")

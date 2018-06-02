@@ -86,15 +86,15 @@ func btnClicked(sender *gowd.Element, event *gowd.EventElement) {
 }
 ```
 
-Using bootstrap:
+Using mdl:
 
-'gowd' supports creating bootstrap elements using the [bootstrap](bootstrap/) package.
+'gowd' supports creating mdl elements using the [mdl](mdl/) package.
 
 First, add bootsrap css and js to your `index.html` file:
 ```html
     <script type="text/javascript" src="js/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/mdl.min.css"/>
+    <script type="text/javascript" src="js/mdl.min.js"></script>
 ```
 
 Then you can create bootsrap items:
@@ -104,7 +104,7 @@ Then you can create bootsrap items:
 import (
 	"github.com/dtylman/gowd"
 
-	"github.com/dtylman/gowd/bootstrap"
+	"github.com/dtylman/gowd/mdl"
 	"time"
 	"fmt"
 )
@@ -112,11 +112,11 @@ import (
 var body *gowd.Element
 
 func main() {
-	//creates a new bootstrap fluid container
-	body = bootstrap.NewContainer(false)
+	//creates a new mdl fluid container
+	body = mdl.NewContainer(false)
 	// add some elements using the object model
-	div := bootstrap.NewElement("div", "well")
-	row := bootstrap.NewRow(bootstrap.NewColumn(bootstrap.ColumnLarge, 6, div))
+	div := mdl.NewElement("div", "well")
+	row := mdl.NewRow(mdl.NewColumn(mdl.ColumnLarge, 6, div))
 	body.AddElement(row)
 	// add some other elements from HTML
 	div.AddHTML(`<div class="dropdown">
@@ -129,9 +129,9 @@ func main() {
 	</ul>
 	</div>`, nil)
 	// add a button to show a progress bar
-	btn := bootstrap.NewButton(bootstrap.ButtonPrimary, "Start")
+	btn := mdl.NewButton(mdl.ButtonPrimary, "Start")
 	btn.OnEvent(gowd.OnClick, btnClicked)
-	row.AddElement(bootstrap.NewColumn(bootstrap.ColumnLarge, 4, bootstrap.NewElement("div", "well", btn)))
+	row.AddElement(mdl.NewColumn(mdl.ColumnLarge, 4, mdl.NewElement("div", "well", btn)))
 
 	//start the ui loop
 	gowd.Run(body)
@@ -141,7 +141,7 @@ func main() {
 func btnClicked(sender *gowd.Element, event *gowd.EventElement) {
 	// adds a text and progress bar to the body 
 	text := body.AddElement(gowd.NewStyledText("Working...", gowd.BoldText))
-	progressBar := bootstrap.NewProgressBar()
+	progressBar := mdl.NewProgressBar()
 	body.AddElement(progressBar.Element)
 	
 	// makes the body stop responding to user events
