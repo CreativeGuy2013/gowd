@@ -18,7 +18,7 @@ const (
 
 //NewInput creates a new input with a provided type
 func NewInputText(inputType string) *gowd.Element {
-	input := NewElement("input")
+	input := NewElement("input", "mdl-textfield mdl-js-textfield")
 	input.SetAttribute("type", inputType)
 	return input
 }
