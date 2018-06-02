@@ -1,6 +1,8 @@
 package bootstrap
 
 import (
+	"strings"
+
 	"github.com/dtylman/gowd"
 )
 
@@ -11,6 +13,8 @@ const (
 	ButtonPrimary = "btn-primary"
 
 	ButtonColoured = "mdl-button--colored"
+	ButtonRippled  = "mdl-js-ripple-effect"
+
 	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
 	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
 	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
@@ -27,8 +31,8 @@ func NewButton(buttontype string, caption string) *gowd.Element {
 	return btn
 }
 
-func NewFab(buttontype string, icon string) *gowd.Element {
-	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--fab"+buttontype)
+func NewFab(icon string, enabled bool, buttontype ...string) *gowd.Element {
+	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--fab"+strings.Join(buttontype, ", "))
 
 	if icon != "" {
 		btnIcon := NewElement("i", "material-icons")
@@ -36,6 +40,9 @@ func NewFab(buttontype string, icon string) *gowd.Element {
 		btn.AddElement(btnIcon)
 	} else {
 		return nil
+	}
+	if !enabled {
+		btn.Disable()
 	}
 	return btn
 }
