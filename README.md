@@ -1,6 +1,8 @@
-# gowd Styling
+# gowd-styling
 
-This is a addon to dtylman's gowd, a library to directly interface with HTML/JS/CSS using GO, that adds more options to style elements.
+## This addon is currently still WIP. We are actively working on adding more styling options and improving current ones. If you have suggestions please open a issue.
+
+This is a addon to dtylman's gowd (a library to directly interface with HTML/JS/CSS using Go) that adds more options to style elements.
 
 
 ### How to use this library:
@@ -9,13 +11,14 @@ This is a addon to dtylman's gowd, a library to directly interface with HTML/JS/
 1. Choose the styling package you want
 1. For **mdl** 
 	1. Get the package using the GO CLI: `go get github.com/CreativeGuy2013/gowd-styling/[name of styling package]` e.g. `go get github.com/CreativeGuy2013/gowd-styling/mdl`.
-	1. In your HTML files import the MDL CSS and JS. These can be found (here)[https://getmdl.io/started/index.html]
-1. Add elements like shown below.
+	1. In your HTML files import the MDL CSS and JS. These can be found at https://getmdl.io/started/index.html
+	1. Add elements like shown below.
 
 
 ### Available Objects:
 
 **MDL:**
+
 	- Buttons
 		- Elements
 			- ButtonFlat
@@ -71,4 +74,6 @@ func btnClicked(sender *gowd.Element, event *gowd.EventElement) {
 	sender.SetText("Clicked!")
 }
 ```
+
+To view the all possible functions and their syntax please look here: https://godoc.org/github.com/CreativeGuy2013/gowd-styling/mdl
 
