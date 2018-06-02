@@ -5,12 +5,9 @@ import (
 )
 
 const (
-	//ButtonDefault default bootstrap button
-	ButtonDefault = "btn-default"
-	//ButtonPrimary primary bootstrap button
-	ButtonPrimary = "btn-primary"
+	//ButtonColoured
+	ButtonColoured = "mdl-button--colored"
 
-	ButtonColoures = "mdl-button--colored"
 	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
 	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
 	//ButtonColouredFab = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
@@ -19,7 +16,7 @@ const (
 )
 
 //NewButton creates a new bootstrap <button> element
-func NewButton(buttontype string, caption string) *gowd.Element {
+func NewButtonDefault(buttontype string, caption string) *gowd.Element {
 	btn := NewElement("button", "btn "+buttontype)
 	if caption != "" {
 		btn.SetText(caption)
@@ -27,7 +24,7 @@ func NewButton(buttontype string, caption string) *gowd.Element {
 	return btn
 }
 
-func NewFab(buttontype string, icon string) *gowd.Element {
+func NewButtonFAB(buttontype string, icon string) *gowd.Element {
 	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--fab"+buttontype)
 
 	if icon != "" {
