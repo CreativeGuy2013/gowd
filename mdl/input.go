@@ -16,7 +16,7 @@ const (
 	InputFloatingLabel = "mdl-textfield--floating-label"
 )
 
-//NewInput creates a new input with a provided type
+//NewInputText creates a new input with a provided type
 func NewInputText(inputType string) *gowd.Element {
 	input := NewElement("input", "mdl-textfield mdl-js-textfield")
 	input.SetAttribute("type", inputType)
