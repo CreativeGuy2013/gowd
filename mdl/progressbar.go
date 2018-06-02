@@ -18,14 +18,14 @@ type ProgressBar struct {
 	buffering  int
 }
 
-//NewProgressBar creates a new progressbar
+//NewProgressBar creates a new progressbar, you can set the percentage and buffer value
 func NewProgressBar() *ProgressBar {
 	progress := new(ProgressBar)
 	progress.Element = NewElement("div", "mdl-progress mdl-js-progress")
 	return progress
 }
 
-//NewLoadingBar creates a new loading bar, you can set the percentage and buffer value
+//NewLoadingBar creates a new loading bar
 func NewLoadingBar() *gowd.Element {
 	loadingBar := NewElement("div", "mdl-progress mdl-js-progress mdl-progress__indeterminate")
 	return loadingBar
