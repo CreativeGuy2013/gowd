@@ -22,7 +22,7 @@ type FileButton struct {
 func NewFileButton(buttontype string, caption string, foldersOnly bool) *FileButton {
 	fb := new(FileButton)
 	fb.Element = gowd.NewElement("div")
-	fb.btn = NewButton(buttontype, caption)
+	fb.btn = NewButtonRaised(caption, true, buttontype)
 	fb.input = gowd.NewElement("input")
 	fb.input.SetAttribute("type", "file")
 	fb.input.SetAttribute("style", "display:none;")

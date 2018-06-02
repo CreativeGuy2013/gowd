@@ -43,7 +43,7 @@ func NewPagination() *Pagination {
 
 //AddItem adds page to the pagination
 func (p *Pagination) AddItem(caption string, active bool, handler gowd.EventHandler) *gowd.Element {
-	link := NewLinkButton(caption)
+	link := NewButtonFlat(caption, true, ButtonPrimary)
 	if handler != nil {
 		link.OnEvent(gowd.OnClick, handler)
 	}
