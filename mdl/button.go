@@ -5,7 +5,7 @@ import (
 )
 
 const (
-	//ButtonColoured
+	//ButtonColoured Are you blind
 	ButtonColoured = "mdl-button--colored"
 )
 
