@@ -15,8 +15,6 @@ const (
 
 	//ButtonRippled makes the button the have a ripple effect.
 	ButtonRippled = "mdl-js-ripple-effect"
-		
-
 )
 
 //NewButtonDefault creates a new standard mdl <button> element
@@ -45,8 +43,8 @@ func NewButtonFab(icon string, enabled bool, buttontype ...string) *gowd.Element
 	return btn
 }
 
-func NewbuttonRaised(icon string, enabled bool, buttontype ...string) *gowd.Element {
-	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--raised "+strings.Join(buttontype, " "))
+func NewFlatFab(icon string, enabled bool, buttontype ...string) *gowd.Element {
+	btn := NewElement("button", "mdl-button mdl-js-button "+strings.Join(buttontype, " "))
 
 	if icon != "" {
 		btnIcon := NewElement("i", "material-icons")
