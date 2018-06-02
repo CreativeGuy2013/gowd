@@ -7,11 +7,7 @@ import (
 )
 
 const (
-	//ButtonDefault default bootstrap button
-	ButtonDefault = "btn-default"
-	//ButtonPrimary primary bootstrap button
-	ButtonPrimary = "btn-primary"
-
+	//ButtonColoured Are you blind
 	ButtonColoured = "mdl-button--colored"
 	ButtonRippled  = "mdl-js-ripple-effect"
 
@@ -23,7 +19,7 @@ const (
 )
 
 //NewButton creates a new bootstrap <button> element
-func NewButton(buttontype string, caption string) *gowd.Element {
+func NewButtonDefault(buttontype string, caption string) *gowd.Element {
 	btn := NewElement("button", "btn "+buttontype)
 	if caption != "" {
 		btn.SetText(caption)
