@@ -1,4 +1,4 @@
-package bootstrap
+package mdl
 
 import (
 	"strings"

@@ -1,7 +1,8 @@
-package bootstrap
+package mdl
 
 import (
 	"fmt"
+
 	"github.com/dtylman/gowd"
 )
 
