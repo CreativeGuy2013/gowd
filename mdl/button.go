@@ -24,11 +24,23 @@ func NewButtonDefault(buttontype string, caption string) *gowd.Element {
 }
 
 func NewFab(icon string, enabled bool, buttontype ...string) *gowd.Element {
-<<<<<<< HEAD
 	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--fab "+strings.Join(buttontype, " "))
-=======
-	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--fab" + strings.Join(buttontype, ", "))
->>>>>>> 81735134817edcba8ba6b104fb68987812ec182d
+
+	if icon != "" {
+		btnIcon := NewElement("i", "material-icons")
+		btnIcon.SetText(icon)
+		btn.AddElement(btnIcon)
+	} else {
+		return nil
+	}
+	if !enabled {
+		btn.Disable()
+	}
+	return btn
+}
+
+func NewbuttonRaised(icon string, enabled bool, buttontype ...string) *gowd.Element {
+	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--raised "+strings.Join(buttontype, " "))
 
 	if icon != "" {
 		btnIcon := NewElement("i", "material-icons")
