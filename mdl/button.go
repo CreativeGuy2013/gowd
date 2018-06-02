@@ -39,8 +39,8 @@ func NewButtonFab(icon string, enabled bool, buttontype ...string) *gowd.Element
 	return btn
 }
 
-func NewbuttonRaised(icon string, enabled bool, buttontype ...string) *gowd.Element {
-	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--raised "+strings.Join(buttontype, " "))
+func NewFlatFab(icon string, enabled bool, buttontype ...string) *gowd.Element {
+	btn := NewElement("button", "mdl-button mdl-js-button "+strings.Join(buttontype, " "))
 
 	if icon != "" {
 		btnIcon := NewElement("i", "material-icons")
@@ -48,6 +48,18 @@ func NewbuttonRaised(icon string, enabled bool, buttontype ...string) *gowd.Elem
 		btn.AddElement(btnIcon)
 	} else {
 		return nil
+	}
+	if !enabled {
+		btn.Disable()
+	}
+	return btn
+}
+
+func NewbuttonRaised(caption string, enabled bool, buttontype ...string) *gowd.Element {
+	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--raised "+strings.Join(buttontype, " "))
+
+	if caption != "" {
+		btn.SetText(caption)
 	}
 	if !enabled {
 		btn.Disable()
