@@ -1,10 +1,12 @@
 package mdl
 
 import (
-	"github.com/dtylman/gowd"
 	"testing"
 
+	"github.com/dtylman/gowd"
+
 	"bytes"
+
 	"github.com/stretchr/testify/assert"
 )
 

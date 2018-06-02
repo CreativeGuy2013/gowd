@@ -3,8 +3,9 @@ package mdl
 import (
 	"errors"
 	"fmt"
-	"github.com/dtylman/gowd"
 	"strconv"
+
+	"github.com/dtylman/gowd"
 )
 
 //<div class="progress">
