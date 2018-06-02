@@ -14,16 +14,16 @@ const (
 	ButtonRippled = "mdl-js-ripple-effect"
 )
 
-//NewButton creates a new mdl <button> element
-func NewButtonDefault(buttontype string, caption string) *gowd.Element {
-	btn := NewElement("button", "btn "+buttontype)
+//NewButtonDefault creates a new standard mdl <button> element
+func NewButtonDefault(caption string, buttontype ...string) *gowd.Element {
+	btn := NewElement("button", "btn "+strings.Join(buttontype, ", "))
 	if caption != "" {
 		btn.SetText(caption)
 	}
 	return btn
 }
 
-func NewFab(icon string, enabled bool, buttontype ...string) *gowd.Element {
+func NewButtonFab(icon string, enabled bool, buttontype ...string) *gowd.Element {
 	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--fab "+strings.Join(buttontype, " "))
 
 	if icon != "" {
