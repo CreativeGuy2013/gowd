@@ -11,7 +11,7 @@ const (
 	ButtonColored = "mdl-button--colored"
 
 	//ButtonColored makes the button the have a ripple effect.
-	ButtonRippled  = "mdl-js-ripple-effect"
+	ButtonRippled = "mdl-js-ripple-effect"
 )
 
 //NewButton creates a new mdl <button> element
@@ -24,7 +24,7 @@ func NewButtonDefault(buttontype string, caption string) *gowd.Element {
 }
 
 func NewFab(icon string, enabled bool, buttontype ...string) *gowd.Element {
-	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--fab"+strings.Join(buttontype, ", "))
+	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--fab" + strings.Join(buttontype, ", "))
 
 	if icon != "" {
 		btnIcon := NewElement("i", "material-icons")
