@@ -7,11 +7,16 @@ import (
 )
 
 const (
-	//ButtonColored makes the button the primary color.
+	//ButtonColored makes the button the primary mdl color.
 	ButtonColored = "mdl-button--colored"
 
-	//ButtonColored makes the button the have a ripple effect.
+	//ButtonAccent makes the button the secondary mdl color.
+	ButtonAccent = "mdl-button--accent"
+
+	//ButtonRippled makes the button the have a ripple effect.
 	ButtonRippled = "mdl-js-ripple-effect"
+		
+
 )
 
 //NewButtonDefault creates a new standard mdl <button> element
