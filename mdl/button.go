@@ -18,7 +18,7 @@ const (
 )
 
 //NewButtonRaised creates a new raised mdl <button> element
-func NewbuttonRaised(caption string, enabled bool, buttontype ...string) *gowd.Element {
+func NewButtonRaised(caption string, enabled bool, buttontype ...string) *gowd.Element {
 	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--raised "+strings.Join(buttontype, " "))
 
 	if caption != "" {
