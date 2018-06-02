@@ -22,7 +22,6 @@ type ProgressBar struct {
 func NewProgressBar() *ProgressBar {
 	progress := new(ProgressBar)
 	progress.Element = NewElement("div", "mdl-progress mdl-js-progress")
-	progress.SetPercent(0)
 	return progress
 }
 
@@ -32,19 +31,19 @@ func NewLoadingBar() *gowd.Element {
 	return loadingBar
 }
 
-//SetPercent sets the value of the progress bar as a percentage
-func (pb *ProgressBar) SetPercent(percent int) {
+//SetPercentage sets the value of the progress bar as a percentage
+func (pb *ProgressBar) SetPercentage(percent int) {
 	pb.percentage = percent
-	execJS(fmt.Sprintf("document.getElementById('%q').MaterialProgress.setProgress(%d)", pb.GetID(), pb.percentage))
+	ExecJS(fmt.Sprintf("document.getElementById(%q).MaterialProgress.setProgress(%d)", pb.GetID(), pb.percentage))
 }
 
 //SetBuffering sets the value of the progress bar as a percentage
 func (pb *ProgressBar) SetBuffering(percent int) {
 	pb.percentage = percent
-	execJS(fmt.Sprintf("document.getElementById('%q').MaterialProgress.setBuffer(%d)", pb.GetID(), pb.percentage))
+	ExecJS(fmt.Sprintf("document.getElementById(%q).MaterialProgress.setBuffer(%d)", pb.GetID(), pb.percentage))
 }
 
-//NewLoadingBar creates a new spinning loader
+//NewSpinner creates a new spinning loader
 func NewSpinner(spinnertype ...string) *gowd.Element {
 	loadingBar := NewElement("div", "mdl-spinner mdl-js-spinner is-active"+strings.Join(spinnertype, " "))
 	return loadingBar
