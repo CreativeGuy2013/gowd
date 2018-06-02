@@ -12,17 +12,13 @@ func NewInputGroup(elems ...*gowd.Element) *gowd.Element {
 }
 
 const (
-	//InputTypeText is <input type=text>
-	InputTypeText = "text"
-	//InputTypeFile is <input type=file>
-	InputTypeFile = "file"
-	//InputTypeCheckbox is <input type=checkbox>
-	InputTypeCheckbox = "checkbox"
+	//InputFloatingLabel is <input type=text>
+	InputFloatingLabel = "mdl-textfield--floating-label"
 )
 
 //NewInput creates a new input with a provided type
-func NewInput(inputType string) *gowd.Element {
-	input := gowd.NewElement("input")
+func NewInputText(inputType string) *gowd.Element {
+	input := NewElement("input")
 	input.SetAttribute("type", inputType)
 	return input
 }
