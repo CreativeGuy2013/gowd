@@ -39,8 +39,8 @@ func NewChipContactImage(text string, contactImageURL string) *Chip {
 	newChip.Contact = NewElement("img", "mdl-chip__contact")
 	newChip.Contact.SetAttribute("src", contactImageURL)
 
-	newChip.AddElement(newChip.Text)
 	newChip.AddElement(newChip.Contact)
+	newChip.AddElement(newChip.Text)
 
 	return newChip
 }
@@ -56,8 +56,8 @@ func NewChipContactText(text string, contactLetter string, backgroundColor strin
 	newChip.Contact = NewElement("img", "mdl-chip__contact mdl-color--"+backgroundColor+" mdl-color-text--"+textColor)
 	newChip.Contact.SetText(contactLetter)
 
-	newChip.AddElement(newChip.Text)
 	newChip.AddElement(newChip.Contact)
+	newChip.AddElement(newChip.Text)
 
 	return newChip
 }
@@ -88,7 +88,7 @@ func NewChipAction(text string, actionIcon string) *Chip {
 //NewChipContactImageAction creates a new chip with an action and a contact image
 func NewChipContactImageAction(text string, contactImageURL string, actionIcon string) *Chip {
 	newChip := new(Chip)
-	newChip.Element = NewElement("span", "mdl-chip mdl-chip--contact")
+	newChip.Element = NewElement("span", "mdl-chip mdl-chip--contact mdl-chip--deletable")
 
 	newChip.Text = NewElement("span", "mdl-chip__text")
 	newChip.Text.SetText(text)
@@ -105,8 +105,8 @@ func NewChipContactImageAction(text string, contactImageURL string, actionIcon s
 		return nil
 	}
 
-	newChip.AddElement(newChip.Text)
 	newChip.AddElement(newChip.Contact)
+	newChip.AddElement(newChip.Text)
 	newChip.AddElement(newChip.Action.Element)
 
 	return newChip
@@ -115,13 +115,14 @@ func NewChipContactImageAction(text string, contactImageURL string, actionIcon s
 //NewChipContactTextAction creates a new chip with an action and contact letter (colors must be a valid MDL colors)
 func NewChipContactTextAction(text string, contactLetter string, backgroundColor string, textColor string, actionIcon string) *Chip {
 	newChip := new(Chip)
-	newChip.Element = NewElement("span", "mdl-chip mdl-chip--contact")
+	newChip.Element = NewElement("span", "mdl-chip mdl-chip--contact mdl-chip--deletable")
 
 	newChip.Text = NewElement("span", "mdl-chip__text")
 	newChip.Text.SetText(text)
 
-	newChip.Contact = NewElement("img", "mdl-chip__contact mdl-color--"+backgroundColor+" mdl-color-text--"+textColor)
+	newChip.Contact = NewElement("span", "mdl-chip__contact mdl-color--"+backgroundColor+" mdl-color-text--"+textColor)
 	newChip.Contact.SetText(contactLetter)
+
 
 	if actionIcon != "" {
 		newChip.Action.Element = NewElement("button", "mdl-chip__action")
@@ -132,8 +133,8 @@ func NewChipContactTextAction(text string, contactLetter string, backgroundColor
 		return nil
 	}
 
-	newChip.AddElement(newChip.Text)
 	newChip.AddElement(newChip.Contact)
+	newChip.AddElement(newChip.Text)
 	newChip.AddElement(newChip.Action.Element)
 
 	return newChip
