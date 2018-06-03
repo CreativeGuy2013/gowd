@@ -86,15 +86,9 @@ func (rb *RadioButton) IsChecked() bool {
 	_, worked := rb.input.GetAttribute("checked")
 	return worked
 }
-<<<<<<< HEAD
 func (rba *RadioButtonArray) GetChecked() string {
 	for _, rb := range rba.buttons {
 		fmt.Printf("%v\n", rb.text.GetID())
-=======
-
-func (rba *RadioButtonArray) GetChecked() (string, error) {
-	/*for _, rb := range rba.buttons {
->>>>>>> cf78555c9810179e6accb656eaeda135631e2ef1
 		if rb.IsChecked() {
 			return rb.text.GetID()
 		}
