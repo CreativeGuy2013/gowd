@@ -12,6 +12,12 @@ type Checkbox struct {
 	text  *gowd.Element
 }
 
+type IconToggle struct {
+	*gowd.Element
+	input *gowd.Element
+	text  *gowd.Element
+}
+
 type RadioButton struct {
 	*gowd.Element
 	input *gowd.Element
@@ -95,4 +101,27 @@ func (rba *RadioButtonArray) GetChecked() string {
 		}
 	}
 	return ""
+}
+
+func NewIconToggle(iconText string) *IconToggle {
+	cb := new(IconToggle)
+
+	cb.Element = NewElement("label", "mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect")
+
+	cb.input = NewElement("input", "mdl-icon-toggle__input")
+	cb.input.SetAttribute("type", "checkbox")
+
+	cb.Element.SetAttribute("for", cb.input.GetID())
+
+	cb.text = NewElement("i", "mdl-icon-toggle__label material-icons")
+	cb.text.SetText(iconText)
+
+	cb.Element.AddElement(cb.input)
+	cb.Element.AddElement(cb.text)
+	return cb
+}
+
+func (cb *IconToggle) IsChecked() bool {
+	_, worked := cb.input.GetAttribute("checked")
+	return worked
 }
