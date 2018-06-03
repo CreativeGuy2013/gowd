@@ -6,6 +6,7 @@ import (
 	"github.com/dtylman/gowd"
 )
 
+//Dialog is a dialog element
 type Dialog struct {
 	*gowd.Element
 	Title   *gowd.Element
