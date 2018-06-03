@@ -56,12 +56,13 @@ func NewRadioButton(groupName string, labelText string, value int) *RadioButton 
 	rb.input.SetAttribute("type", "radio")
 	rb.input.SetAttribute("value", string(value))
 	rb.input.SetAttribute("name", groupName)
-	rb.input.SetAttribute("onclick", fmt.Sprintf("update_radio_button(%s)", rb.input.GetID()))
+	rb.input.SetAttribute("onclick", fmt.Sprintf("update_radio_button('%s')", rb.input.GetID()))
 
 	rb.Element.SetAttribute("for", rb.input.GetID())
 
 	rb.text = NewElement("span", "mdl-checkbox__label")
 	rb.text.SetText(labelText)
+	rb.text.SetID(labelText)
 
 	rb.Element.AddElement(rb.input)
 	rb.Element.AddElement(rb.text)
@@ -85,12 +86,12 @@ func (rb *RadioButton) IsChecked() bool {
 	_, worked := rb.input.GetAttribute("checked")
 	return worked
 }
-func (rba *RadioButtonArray) GetChecked() (string, error) {
-	/*for _, rb := range rba.buttons {
+func (rba *RadioButtonArray) GetChecked() string {
+	for _, rb := range rba.buttons {
+		fmt.Printf("%v\n", rb.text.GetID())
 		if rb.IsChecked() {
-			return rb.text.GetValue(), nil
+			return rb.text.GetID()
 		}
 	}
-	return "", errors.New("could not find the checked box")*/
-	return "nil", nil
+	return ""
 }
