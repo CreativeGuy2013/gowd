@@ -2,7 +2,6 @@ package mdl
 
 import (
 	"fmt"
-	"time"
 
 	"github.com/dtylman/gowd"
 )
@@ -37,8 +36,5 @@ func NewSnackbar(message string, timeout int, actionText string, eventlistner go
 }
 
 func (snackbar *Snackbar) Open() {
-	go func() {
-		time.Sleep(10 * time.Millisecond)
-		ExecJS(fmt.Sprintf("document.querySelector('#_div4').MaterialSnackbar.showSnackbar({message: '%s',timeout: %d,actionHandler: function(event) {},actionText: '%s'});", snackbar.message, snackbar.timeout, snackbar.actionText))
-	}()
+	gowd.ExecJS(fmt.Sprintf("document.querySelector('#%s').MaterialSnackbar.showSnackbar({message: '%s',timeout: %d,actionHandler: function(event) {},actionText: '%s'});", snackbar.Element.GetID(), snackbar.message, snackbar.timeout, snackbar.actionText))
 }
