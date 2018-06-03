@@ -3,7 +3,6 @@ package mdl
 import (
 	"fmt"
 	"os"
-	"time"
 
 	"github.com/dtylman/gowd"
 )
@@ -54,8 +53,7 @@ func NewColumn(size string, span int, elems ...*gowd.Element) *gowd.Element {
 	return NewElement("div", fmt.Sprintf("%s-%d", size, span), elems...)
 }
 
-//ExecJS Executes a JS function in NWJS. There is a 20 ms wait before excecution.
+//ExecJS Executes a JS function in NWJS. if you want this to be run after GOWD updates the DOM, you should put your whole function in a goroutine
 func ExecJS(js string) {
-	time.Sleep(20 * time.Millisecond)
 	fmt.Fprintf(os.Stdout, "$%s\n", js)
 }
