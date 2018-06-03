@@ -27,15 +27,6 @@ type InputExpandable struct {
 	}
 }
 
-//NewInputGroup creates new bootsrap input group from the given elements
-func NewInputGroup(elems ...*gowd.Element) *gowd.Element {
-	inputGroup := NewElement("div", "input-group")
-	for _, elem := range elems {
-		inputGroup.AddElement(elem)
-	}
-	return inputGroup
-}
-
 const (
 	//InputFloatingLabel is <input type=text>
 	InputFloatingLabel = "mdl-textfield--floating-label"
