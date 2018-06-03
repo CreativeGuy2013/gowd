@@ -12,6 +12,7 @@ const (
 	SpinnerSingleColour = "mdl-spinner--single-color"
 )
 
+//ProgressBar is a progress bar element
 type ProgressBar struct {
 	*gowd.Element
 	percentage int

@@ -6,6 +6,7 @@ import (
 	"github.com/dtylman/gowd"
 )
 
+//Input is a input element
 type Input struct {
 	*gowd.Element
 	Input *gowd.Element
@@ -13,6 +14,7 @@ type Input struct {
 	Error *gowd.Element
 }
 
+//InputExpandable is a expandable input element
 type InputExpandable struct {
 	*gowd.Element
 	ExpandableHolder struct {
@@ -25,15 +27,6 @@ type InputExpandable struct {
 		*gowd.Element
 		Icon *gowd.Element
 	}
-}
-
-//NewInputGroup creates new bootsrap input group from the given elements
-func NewInputGroup(elems ...*gowd.Element) *gowd.Element {
-	inputGroup := NewElement("div", "input-group")
-	for _, elem := range elems {
-		inputGroup.AddElement(elem)
-	}
-	return inputGroup
 }
 
 const (
