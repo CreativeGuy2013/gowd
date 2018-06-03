@@ -86,6 +86,7 @@ func (rb *RadioButton) IsChecked() bool {
 	_, worked := rb.input.GetAttribute("checked")
 	return worked
 }
+
 func (rba *RadioButtonArray) GetChecked() string {
 	for _, rb := range rba.buttons {
 		fmt.Printf("%v\n", rb.text.GetID())
