@@ -16,6 +16,13 @@ type Snackbar struct {
 	actionText    string
 }
 
+type Toast struct {
+	*gowd.Element
+	textElement *gowd.Element
+	message     string
+	timeout     int
+}
+
 func NewSnackbar(message string, timeout int, actionText string, eventlistner gowd.EventHandler) *Snackbar {
 	snackbar := new(Snackbar)
 
@@ -36,9 +43,31 @@ func NewSnackbar(message string, timeout int, actionText string, eventlistner go
 	return snackbar
 }
 
+func NewToast(message string, timeout int) *Toast {
+	toast := new(Toast)
+
+	toast.Element = NewElement("div", "mdl-js-snackbar mdl-snackbar")
+
+	toast.textElement = NewElement("div", "mdl-snackbar__text")
+
+	toast.Element.AddElement(toast.textElement)
+
+	toast.message = message
+	toast.timeout = timeout
+
+	return toast
+}
+
 func (snackbar *Snackbar) Open() {
 	go func() {
 		time.Sleep(10 * time.Millisecond)
-		ExecJS(fmt.Sprintf("document.querySelector('#_div4').MaterialSnackbar.showSnackbar({message: '%s',timeout: %d,actionHandler: function(event) {},actionText: '%s'});", snackbar.message, snackbar.timeout, snackbar.actionText))
+		ExecJS(fmt.Sprintf("document.querySelector('"+snackbar.Element.GetID()+"').MaterialSnackbar.showSnackbar({message: '%s',timeout: %d,actionHandler: function(event) {},actionText: '%s'});", snackbar.message, snackbar.timeout, snackbar.actionText))
+	}()
+}
+
+func (toast *Toast) Open() {
+	go func() {
+		time.Sleep(10 * time.Millisecond)
+		ExecJS(fmt.Sprintf("document.querySelector('"+toast.Element.GetID()+"').MaterialSnackbar.showSnackbar({message: '%s',timeout: %d});", toast.message, toast.timeout))
 	}()
 }

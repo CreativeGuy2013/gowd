@@ -2,7 +2,7 @@ package mdl
 
 import (
 	"strings"
-
+	"time"
 	"github.com/dtylman/gowd"
 )
 
@@ -42,15 +42,24 @@ func NewDialog(title string, content *gowd.Element, actions *gowd.Element, dialo
 
 //Show Shows the dialog without modal.
 func (dialog *Dialog) Show() {
-	ExecJS("document.getElementById('" + dialog.Element.GetID() + "').show()")
+	go func() {
+		time.Sleep(10 * time.Millisecond)
+		ExecJS("document.getElementById('" + dialog.Element.GetID() + "').show()")
+	}()
 }
 
 //ShowModal Shows the dialog with modal.
 func (dialog *Dialog) ShowModal() {
-	ExecJS("document.getElementById('" + dialog.Element.GetID() + "').showModal()")
+	go func() {
+		time.Sleep(10 * time.Millisecond)
+		ExecJS("document.getElementById('" + dialog.Element.GetID() + "').showModal()")
+	}()
 }
 
 //Close Closes the dialog.
 func (dialog *Dialog) Close() {
-	ExecJS("document.getElementById('" + dialog.Element.GetID() + "').close()")
+	go func() {
+		time.Sleep(10 * time.Millisecond)
+		ExecJS("document.getElementById('" + dialog.Element.GetID() + "').close()")
+	}()
 }
