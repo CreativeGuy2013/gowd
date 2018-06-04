@@ -6,9 +6,10 @@ import (
 	"github.com/dtylman/gowd"
 )
 
-//TableRow represents a <tr>
-type TableRow struct {
+//TableRow represents a <td> or <th>
+type TableCell struct {
 	*gowd.Element
+	Modifier string
 }
 
 //Table represents <table>
@@ -16,71 +17,35 @@ type Table struct {
 	*gowd.Element
 	Head *gowd.Element
 	Body *gowd.Element
-	Rows []*TableRow
 }
 
-//TableStripped table is stripped
-const TableStripped = "table-striped"
 
 //NewTable creates a new table with type
-func NewTable(tableType string) *Table {
-	t := new(Table)
-	t.Element = NewElement("table", "table")
-	if tableType != "" {
-		t.Element.SetClass(tableType)
+func NewTable(headRow *[]TableCell, table *[][]TableCell) *Table {
+	newTable := new(Table)
+	newTable.Element = NewElement("table", "mdl-data-table mdl-js-data-table")
+	newTable.Head = gowd.NewElement("thead")
+	newTable.AddElement(newTable.Head)
+	newTable.Body = gowd.NewElement("tbody")
+	newTable.AddElement(newTable.Body)
+	headerRow = NewElement("tr", "")
+	newTable.Head.AddElement(headerRow)
+
+	for i, element := range headRow {
+		newCell = NewElement("th", element.Modifier)
+		newCell.AddElement(element.Element)
+		headerRow.AddElement(newCell)
 	}
-	t.Head = gowd.NewElement("thead")
-	t.AddElement(t.Head)
-	t.Body = gowd.NewElement("tbody")
-	t.AddElement(t.Body)
-	t.Rows = make([]*TableRow, 0)
+
+	for i, row := range table {
+		newRow = NewElement("tr")
+		newTable.Body.AddElement(newRow)
+		for i, element := range row {
+			newCell = NewElement("td", element.Modifier)
+			newCell.AddElement(element.Element)
+			newRow.AddElement(newCell)
+		}
+	}
+
 	return t
-}
-
-//AddRow adds a row
-func (t *Table) AddRow() *TableRow {
-	row := NewTableRow()
-	t.Rows = append(t.Rows, row)
-	t.Body.AddElement(row.Element)
-	return row
-}
-
-//AddHeader adds an header row
-func (t *Table) AddHeader(caption string) *gowd.Element {
-	th := gowd.NewElement("th")
-	th.AddElement(gowd.NewText(caption))
-	t.Head.AddElement(th)
-	return th
-}
-
-//NewCell creates and adds new cell
-func NewCell(caption string) *gowd.Element {
-	td := gowd.NewElement("td")
-	td.AddElement(gowd.NewText(caption))
-	return td
-}
-
-//QuickTable creates a table from a given map with key-value pairs
-func QuickTable(tableType string, data map[string]interface{}) *Table {
-	t := NewTable(tableType)
-	for key, value := range data {
-		row := t.AddRow()
-		row.AddElement(NewCell(key))
-		row.AddElement(NewCell(fmt.Sprintf("%v", value)))
-	}
-	return t
-}
-
-//NewTableRow creates a new table row
-func NewTableRow() *TableRow {
-	tr := new(TableRow)
-	tr.Element = gowd.NewElement("tr")
-	return tr
-}
-
-//AddCells adds cells to a table row
-func (tr *TableRow) AddCells(cells ...string) {
-	for _, cell := range cells {
-		tr.AddElement(NewCell(cell))
-	}
 }

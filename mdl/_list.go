@@ -1,38 +1,54 @@
 package mdl
 
-import "github.com/dtylman/gowd"
-
-//ListItems a list of elements
-type ListItems []*gowd.Element
-
-//List is a struct for <ul>, <ol>, <dl>
-type List struct {
-	*gowd.Element
-	Items ListItems
-}
-
-const (
-	//ListUnordered is <ul>
-	ListUnordered = "ul"
-	//ListOrdered is <ol>
-	ListOrdered = "ol"
-	//DescriptionList is <dl>
-	DescriptionList = "dl"
+import (
+	"github.com/dtylman/gowd"
 )
 
-//NewList creates a new list
-func NewList(listType string, class string) *List {
-	l := new(List)
-	l.Element = NewElement(listType, class)
-	l.Items = make(ListItems, 0)
-	return l
+type List struct {
+	*gowd.Element
+	Elements []ListElement
 }
 
-//AddItem creates new LI, adds the elem to the li and returns the li to the caller.
-func (l *List) AddItem(elem *gowd.Element) *gowd.Element {
-	item := gowd.NewElement("li")
-	item.AddElement(elem)
-	l.AddElement(item)
-	l.Items = append(l.Items, elem)
-	return item
+type ListElement struct {
+	*gowd.Element
+	Primary struct {
+		*gowd.Element
+		SubText *gowd.Element
+	}
+	Secondary struct {
+		*gowd.Element
+		Action *gowd.Element
+		Info   *gowd.Element
+	}
+}
+
+func NewList() *List {
+	newList := new(List)
+	return newList
+}
+
+func NewListElement(primaryContent *gowd.Element, secondaryAction *gowd.Element, secondaryInfo *gowd.Element) *ListElement {
+	newListElement := new(ListElement)
+
+	newListElement.Element = NewElement("li", "mdl-list__item")
+	newListElement.Primary.Element = NewElement("span", "mdl-list__item-primary-content")
+
+	newListElement.Secondary.Element = NewElement("span", "mdl-list__item-secondary-content")
+	
+	if action != nil {
+		newListElement.Secondary.Action = NewElement("span", "mdl-list__item-primary-content")
+	}
+
+	return newListElement
+}
+
+func NewListElementShortSubtitle(primaryContent *gowd.Element, primarySubtitle *gowd.Element, secondaryAction *gowd.Element, secondaryInfo *gowd.Element) *ListElement {
+	newListElement := new(ListElement)
+
+	return newListElement
+}
+
+func NewListElementLongSubtitle(primaryContent *gowd.Element, primarySubtitle *gowd.Element, secondaryAction *gowd.Element, secondaryInfo *gowd.Element) *ListElement {
+	newListElement := new(ListElement)
+	return newListElement
 }
