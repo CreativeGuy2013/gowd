@@ -59,10 +59,7 @@ func NewToast(message string, timeout int) *Toast {
 }
 
 func (snackbar *Snackbar) Open() {
-	go func() {
-		time.Sleep(10 * time.Millisecond)
-		ExecJS(fmt.Sprintf("document.querySelector('"+snackbar.Element.GetID()+"').MaterialSnackbar.showSnackbar({message: '%s',timeout: %d,actionHandler: function(event) {},actionText: '%s'});", snackbar.message, snackbar.timeout, snackbar.actionText))
-	}()
+	gowd.ExecJS(fmt.Sprintf("document.querySelector('#%s').MaterialSnackbar.showSnackbar({message: '%s',timeout: %d,actionHandler: function(event) {},actionText: '%s'});", snackbar.Element.GetID(), snackbar.message, snackbar.timeout, snackbar.actionText))
 }
 
 func (toast *Toast) Open() {
