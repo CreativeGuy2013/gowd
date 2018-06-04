@@ -1,7 +1,7 @@
 package mdl
 
 import (
-	"github.com/dtylman/gowd"
+	"github.com/jaicewizard/gowd"
 )
 
 //Chip is a chip element

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/dtylman/gowd"
+	"github.com/jaicewizard/gowd"
 )
 
 const (
@@ -35,13 +35,13 @@ func NewLoadingBar() *gowd.Element {
 //SetPercentage sets the value of the progress bar as a percentage
 func (pb *ProgressBar) SetPercentage(percent int) {
 	pb.percentage = percent
-	ExecJS(fmt.Sprintf("document.getElementById(%q).MaterialProgress.setProgress(%d)", pb.GetID(), pb.percentage))
+	gowd.ExecJS(fmt.Sprintf("document.getElementById(%q).MaterialProgress.setProgress(%d)", pb.GetID(), pb.percentage))
 }
 
 //SetBuffering sets the value of the progress bar as a percentage
 func (pb *ProgressBar) SetBuffering(percent int) {
 	pb.percentage = percent
-	ExecJS(fmt.Sprintf("document.getElementById(%q).MaterialProgress.setBuffer(%d)", pb.GetID(), pb.percentage))
+	gowd.ExecJS(fmt.Sprintf("document.getElementById(%q).MaterialProgress.setBuffer(%d)", pb.GetID(), pb.percentage))
 }
 
 //NewSpinner creates a new spinning loader
