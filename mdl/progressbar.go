@@ -10,6 +10,9 @@ import (
 const (
 	//SpinnerSingleColour makes the button the primary mdl color.
 	SpinnerSingleColour = "mdl-spinner--single-color"
+
+	//LoadingBar this makes a progressbar a loader
+	LoadingBar = "mdl-progress__indeterminate"
 )
 
 //ProgressBar is a progress bar element
@@ -20,16 +23,10 @@ type ProgressBar struct {
 }
 
 //NewProgressBar creates a new progressbar, you can set the percentage and buffer value
-func NewProgressBar() *ProgressBar {
+func NewProgressBar(buttontype string) *ProgressBar {
 	progress := new(ProgressBar)
-	progress.Element = NewElement("div", "mdl-progress mdl-js-progress")
+	progress.Element = NewElement("div", "mdl-progress mdl-js-progress "+buttontype)
 	return progress
-}
-
-//NewLoadingBar creates a new loading bar
-func NewLoadingBar() *gowd.Element {
-	loadingBar := NewElement("div", "mdl-progress mdl-js-progress mdl-progress__indeterminate")
-	return loadingBar
 }
 
 //SetPercentage sets the value of the progress bar as a percentage
