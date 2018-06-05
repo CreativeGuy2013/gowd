@@ -2,9 +2,8 @@ package mdl
 
 import (
 	"fmt"
-	"time"
 
-	"github.com/dtylman/gowd"
+	"github.com/jaicewizard/gowd"
 )
 
 type Snackbar struct {
@@ -63,8 +62,5 @@ func (snackbar *Snackbar) Open() {
 }
 
 func (toast *Toast) Open() {
-	go func() {
-		time.Sleep(10 * time.Millisecond)
-		ExecJS(fmt.Sprintf("document.querySelector('"+toast.Element.GetID()+"').MaterialSnackbar.showSnackbar({message: '%s',timeout: %d});", toast.message, toast.timeout))
-	}()
+	gowd.ExecJS(fmt.Sprintf("document.querySelector('"+toast.Element.GetID()+"').MaterialSnackbar.showSnackbar({message: '%s',timeout: %d});", toast.message, toast.timeout))
 }

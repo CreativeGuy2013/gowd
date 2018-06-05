@@ -3,7 +3,7 @@ package mdl
 import (
 	"fmt"
 
-	"github.com/dtylman/gowd"
+	"github.com/jaicewizard/gowd"
 )
 
 //CheckBox is a MDl checkbox element

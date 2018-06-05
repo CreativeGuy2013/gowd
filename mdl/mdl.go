@@ -2,9 +2,8 @@ package mdl
 
 import (
 	"fmt"
-	"os"
 
-	"github.com/dtylman/gowd"
+	"github.com/jaicewizard/gowd"
 )
 
 //NewElement returns new mdl element
@@ -51,9 +50,4 @@ const (
 //NewColumn returns new mdl column
 func NewColumn(size string, span int, elems ...*gowd.Element) *gowd.Element {
 	return NewElement("div", fmt.Sprintf("%s-%d", size, span), elems...)
-}
-
-//ExecJS Executes a JS function in NWJS. if you want this to be run after GOWD updates the DOM, you should put your whole function in a goroutine
-func ExecJS(js string) {
-	fmt.Fprintf(os.Stdout, "$%s\n", js)
 }
