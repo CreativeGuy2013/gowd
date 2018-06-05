@@ -62,7 +62,7 @@ func NewButtonFab(icon string, enabled bool, buttontype ...string) *gowd.Element
 
 //NewButtonFabMini creates a new mini fab mdl <button> element
 func NewButtonFabMini(icon string, enabled bool, buttontype ...string) *gowd.Element {
-	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab"+strings.Join(buttontype, ", "))
+	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab "+strings.Join(buttontype, ", "))
 
 	if icon != "" {
 		btnIcon := NewElement("i", "material-icons")
@@ -79,7 +79,7 @@ func NewButtonFabMini(icon string, enabled bool, buttontype ...string) *gowd.Ele
 
 //NewButtonIcon creates a new icon mdl <button> element
 func NewButtonIcon(icon string, enabled bool, buttontype ...string) *gowd.Element {
-	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--icon"+strings.Join(buttontype, ", "))
+	btn := NewElement("button", "mdl-button mdl-js-button mdl-button--icon "+strings.Join(buttontype, ", "))
 
 	if icon != "" {
 		btnIcon := NewElement("i", "material-icons")
