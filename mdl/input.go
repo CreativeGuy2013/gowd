@@ -3,7 +3,7 @@ package mdl
 import (
 	"strings"
 
-	"github.com/jaicewizard/gowd"
+	"github.com/dtylman/gowd"
 )
 
 //Input is a input element

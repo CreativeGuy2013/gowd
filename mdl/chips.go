@@ -1,7 +1,7 @@
 package mdl
 
 import (
-	"github.com/jaicewizard/gowd"
+	"github.com/dtylman/gowd"
 )
 
 //Chip is a chip element
@@ -122,7 +122,6 @@ func NewChipContactTextAction(text string, contactLetter string, backgroundColor
 
 	newChip.Contact = NewElement("span", "mdl-chip__contact mdl-color--"+backgroundColor+" mdl-color-text--"+textColor)
 	newChip.Contact.SetText(contactLetter)
-
 
 	if actionIcon != "" {
 		newChip.Action.Element = NewElement("button", "mdl-chip__action")
