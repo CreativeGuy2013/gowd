@@ -12,9 +12,9 @@ type Menu struct {
 }
 
 //NewMenu creates a new menu
-func NewMenu(bindElement *gowd.Element, options []*gowd.Element, menuModifiers ...string) Menu {
+func NewMenu(bindElement *gowd.Element, options []*gowd.Element, menuModifiers ...string) *Menu {
 	newMenu := new(Menu)
-	newMenu = NewElement("ul", "mdl-menu mdl-js-menu "+strings.Join(menuModifiers, " "))
+	newMenu.Element = NewElement("ul", "mdl-menu mdl-js-menu "+strings.Join(menuModifiers, " "))
 	newMenu.SetAttribute("data-mdl-for", bindElement.GetID())
 
 	var outElements []*gowd.Element
