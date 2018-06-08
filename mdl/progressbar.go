@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/jaicewizard/gowd"
+	"github.com/dtylman/gowd"
 )
 
 const (

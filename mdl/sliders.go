@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/jaicewizard/gowd"
+	"github.com/dtylman/gowd"
 )
 
 type Slider struct {

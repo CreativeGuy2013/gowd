@@ -3,7 +3,7 @@ package mdl
 import (
 	"fmt"
 
-	"github.com/jaicewizard/gowd"
+	"github.com/dtylman/gowd"
 )
 
 type Snackbar struct {
