@@ -1,7 +1,7 @@
 package mdl
 
 import (
-	"github.com/jaicewizard/gowd"
+	"github.com/dtylman/gowd"
 )
 
 type LayoutHeader struct {
