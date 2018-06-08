@@ -6,9 +6,14 @@ import (
 	"github.com/dtylman/gowd"
 )
 
+type Menu struct {
+	*gowd.Element
+	OutElements []*gowd.Element
+}
+
 //NewMenu creates a new menu
-func NewMenu(bindElement *gowd.Element, options []*gowd.Element, menuModifiers ...string) (*gowd.Element, []*gowd.Element) {
-	newMenu := new(gowd.Element)
+func NewMenu(bindElement *gowd.Element, options []*gowd.Element, menuModifiers ...string) Menu {
+	newMenu := new(Menu)
 	newMenu = NewElement("ul", "mdl-menu mdl-js-menu "+strings.Join(menuModifiers, " "))
 	newMenu.SetAttribute("data-mdl-for", bindElement.GetID())
 
@@ -21,5 +26,5 @@ func NewMenu(bindElement *gowd.Element, options []*gowd.Element, menuModifiers .
 		outElements = append(outElements, newOption)
 	}
 
-	return newMenu, outElements
+	return newMenu
 }
