@@ -26,5 +26,6 @@ func NewMenu(bindElement *gowd.Element, options []*gowd.Element, menuModifiers .
 		outElements = append(outElements, newOption)
 	}
 
+	newMenu.OutElements = outElements
 	return newMenu
 }
