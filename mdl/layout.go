@@ -71,6 +71,8 @@ func NewNavigationHeader(headerTitle string, navigaionElements []*gowd.Element, 
 	headerLayout.container.AddElement(headerLayout.title)
 	headerLayout.container.AddElement(headerLayout.spacer)
 	headerLayout.container.AddElement(headerLayout.nav)
+
+	headerLayout.Element.AddElement(headerLayout.container)
 	return headerLayout
 }
 
@@ -94,12 +96,13 @@ func NewNavigationDrawer(drawerTitle string, drawerElements []*gowd.Element) *La
 }
 
 //NewNavigationLayout creates a new navigation layout
-func NewNavigationLayout(header *LayoutHeader, drawer *LayoutDrawer, body gowd.Element, navigationTypes ...navModification) *gowd.Element {
+func NewNavigationLayout(header *LayoutHeader, drawer *LayoutDrawer, body *gowd.Element, navigationTypes ...navModification) *gowd.Element {
 	navigationLayout := new(NavigationLayout)
 	navigationLayout.header = header
 	navigationLayout.drawer = drawer
 	navigationLayout.body = NewElement("div", "mdl-layout__content")
-	navigationLayout.Element = NewElement("div", "mdl-layout mdl-js-layout"+navToString(navigationTypes))
+	navigationLayout.body.AddElement(body)
+	navigationLayout.Element = NewElement("div", "mdl-layout mdl-js-layout "+navToString(navigationTypes))
 
 	navigationLayout.Element.AddElement(navigationLayout.header.Element)
 	navigationLayout.Element.AddElement(navigationLayout.drawer.Element)
