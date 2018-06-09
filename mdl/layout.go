@@ -32,7 +32,7 @@ var navHeaderMods = [...]string{
 
 const (
 	//NavigationHeaderTransparent makes the header transparent
-	NavigationHeaderTransparent navHeaderModification = 1 + iota
+	NavigationHeaderTransparent navHeaderModification = 0 + iota
 )
 
 type navModification int
@@ -44,7 +44,7 @@ var navMods = [...]string{
 
 const (
 	//NavigationFixedHeader makes the header fixed
-	NavigationFixedHeader navModification = 1 + iota
+	NavigationFixedHeader navModification = 0 + iota
 	//NavigationFixedDrawer makes the drawer fixed
 	NavigationFixedDrawer
 )
