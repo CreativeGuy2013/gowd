@@ -43,6 +43,5 @@ func NewTable(headRow []TableCell, table [][]TableCell) *Table {
 			newRow.AddElement(newCell)
 		}
 	}
-
 	return newTable
 }
