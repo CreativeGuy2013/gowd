@@ -158,3 +158,12 @@ func (checkbox *checkBox) IsChecked() bool {
 	_, worked := checkbox.input.GetAttribute("checked")
 	return worked
 }
+
+//IsChecked checks if a checkbox is checked is checked
+func (checkbox *checkBox) SetState(state bool) {
+	if state == true {
+		gowd.ExecJSNow("document.getElementById('" + checkbox.GetID() + "').setAttribute('checked', 'checked')")
+	} else {
+		gowd.ExecJSNow("document.getElementById('" + checkbox.GetID() + "').removeAttribute('checked')")
+	}
+}
