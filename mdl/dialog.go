@@ -42,15 +42,15 @@ func NewDialog(title string, content *gowd.Element, actions *gowd.Element, dialo
 
 //Show Shows the dialog without modal.
 func (dialog *Dialog) Show() {
-	gowd.ExecJS("document.getElementById('" + dialog.Element.GetID() + "').show()")
+	gowd.ExecJSNow("document.getElementById('" + dialog.Element.GetID() + "').show()")
 }
 
 //ShowModal Shows the dialog with modal.
 func (dialog *Dialog) ShowModal() {
-	gowd.ExecJS("document.getElementById('" + dialog.Element.GetID() + "').showModal()")
+	gowd.ExecJSNow("document.getElementById('" + dialog.Element.GetID() + "').showModal()")
 }
 
 //Close Closes the dialog.
 func (dialog *Dialog) Close() {
-	gowd.ExecJS("document.getElementById('" + dialog.Element.GetID() + "').close()")
+	gowd.ExecJSNow("document.getElementById('" + dialog.Element.GetID() + "').close()")
 }

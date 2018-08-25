@@ -23,9 +23,9 @@ type ProgressBar struct {
 }
 
 //NewProgressBar creates a new progressbar, you can set the percentage and buffer value
-func NewProgressBar(buttontype string) *ProgressBar {
+func NewProgressBar(style string) *ProgressBar {
 	progress := new(ProgressBar)
-	progress.Element = NewElement("div", "mdl-progress mdl-js-progress "+buttontype)
+	progress.Element = NewElement("div", "mdl-progress mdl-js-progress "+style)
 	return progress
 }
 
