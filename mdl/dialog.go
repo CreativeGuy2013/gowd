@@ -45,9 +45,14 @@ func (dialog *Dialog) Show() {
 	gowd.ExecJSNow("document.getElementById('" + dialog.Element.GetID() + "').show()")
 }
 
+//ShowModalNow Shows the dialog with modal now.
+func (dialog *Dialog) ShowModalNow() {
+	gowd.ExecJSNow("document.getElementById('" + dialog.Element.GetID() + "').showModal()")
+}
+
 //ShowModal Shows the dialog with modal.
 func (dialog *Dialog) ShowModal() {
-	gowd.ExecJSNow("document.getElementById('" + dialog.Element.GetID() + "').showModal()")
+	gowd.ExecJS("document.getElementById('" + dialog.Element.GetID() + "').showModal()")
 }
 
 //Close Closes the dialog.

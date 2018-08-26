@@ -32,13 +32,13 @@ func NewProgressBar(style string) *ProgressBar {
 //SetPercentage sets the value of the progress bar as a percentage
 func (pb *ProgressBar) SetPercentage(percent int) {
 	pb.percentage = percent
-	gowd.ExecJS(fmt.Sprintf("document.getElementById(%q).MaterialProgress.setProgress(%d)", pb.GetID(), pb.percentage))
+	gowd.ExecJSNow(fmt.Sprintf("document.getElementById(%q).MaterialProgress.setProgress(%d)", pb.GetID(), pb.percentage))
 }
 
 //SetBuffering sets the value of the progress bar as a percentage
 func (pb *ProgressBar) SetBuffering(percent int) {
 	pb.percentage = percent
-	gowd.ExecJS(fmt.Sprintf("document.getElementById(%q).MaterialProgress.setBuffer(%d)", pb.GetID(), pb.percentage))
+	gowd.ExecJSNow(fmt.Sprintf("document.getElementById(%q).MaterialProgress.setBuffer(%d)", pb.GetID(), pb.percentage))
 }
 
 //NewSpinner creates a new spinning loader
